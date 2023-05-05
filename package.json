@@ -1,0 +1,22 @@
+{
+  "name": "backend-challenge--museums-near-you",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node": "^20.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.39.0",
+    "nodemon": "^2.0.22"
+  }
+}
