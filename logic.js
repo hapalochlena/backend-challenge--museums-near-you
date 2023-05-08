@@ -1,9 +1,26 @@
-// making API call to Mapbox with data from req.body
-// Mapbox provides a handy API endpoint for // * fetching museums around a location
+const axios = require('axios');
+require('dotenv').config();
+const apiKey = process.env.API_KEY;
 
-const logic = async (lat, lng) => {
-  
+// * fetching museums around a location
+
+// Geocoding API
+// Reverse geocoding turns geographic coordinates into place names, turning -77.050, 38.889 into 2 Lincoln Memorial Circle NW.
+// ! endpoint: mapbox.places
+// ! poi / category ?
+// Points of interest. These include restaurants, stores, concert venues, parks, museums, etc.
+
+
+const getLocation = (lat, lng) => {
+	const numberOfMuseums = 1;
+	return axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?limit=${numberOfMuseums}&access_token=${apiKey}`)
+		.then(response => response.data)
+		.catch(error => {
+			console.error(error);
+		});
 };
+
+
 
 // convert to json?
 
@@ -25,4 +42,4 @@ const logic = async (lat, lng) => {
 
 
 
-module.exports = { logic };
+module.exports = { getLocation };

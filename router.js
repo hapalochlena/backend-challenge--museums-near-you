@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const { controller } = require('./controller');
+const { postCoordinates, showMuseums } = require('./controller');
 
-router.post('/', controller); // receive the lat + long
-router.get('/results', controller); // display the museums
+router.post('/', postCoordinates); // receive the lat + long
+router.get('/results', showMuseums); // display the museums
 
 // router.get('/api/query', );
 
