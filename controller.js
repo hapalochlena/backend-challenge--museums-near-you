@@ -23,5 +23,4 @@ const showMuseums = async (req, res) => {
 };
 
 
-
 module.exports = { postCoordinates, showMuseums };
