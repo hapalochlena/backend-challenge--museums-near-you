@@ -11,16 +11,14 @@ const apiKey = process.env.API_KEY;
 // Points of interest. These include restaurants, stores, concert venues, parks, museums, etc.
 
 
-const getLocation = (lat, lng) => {
-	const numberOfMuseums = 1;
-	return axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?limit=${numberOfMuseums}&access_token=${apiKey}`)
+const findMuseumsNearby = (lat, lng) => {
+	const numberOfMuseums = 5;
+	return axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/museum.json?proximity=${lng},${lat}&limit=${numberOfMuseums}&access_token=${apiKey}`)
 		.then(response => response.data)
 		.catch(error => {
 			console.error(error);
 		});
 };
-
-
 
 // convert to json?
 
@@ -42,4 +40,4 @@ const getLocation = (lat, lng) => {
 
 
 
-module.exports = { getLocation };
+module.exports = { findMuseumsNearby };

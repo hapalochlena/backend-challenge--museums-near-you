@@ -1,16 +1,15 @@
 // one controller function: receives long+lat in req, sends museums back
 
-const { getLocation } = require('./logic');
+const { findMuseumsNearby } = require('./logic');
 
-// ! better function name
 const postCoordinates = async (req, res) => {
 	try {
 		const { lat, lng } = req.query; // 52.494857 13.437641
-		const result = await getLocation(lat, lng); // ! logic function name
+		const result = await findMuseumsNearby(lat, lng);
 		res.status(200).json({ success: true, data: result});
 	} catch (error) {
 		console.log(error);
-		res.sendStatus(500); // ! 500
+		res.sendStatus(500);
 	}
 };
 
@@ -19,7 +18,7 @@ const showMuseums = async (req, res) => {
 		console.log('');
 	} catch (error) {
 		console.log(error);
-		res.sendStatus(500); // ! 500
+		res.sendStatus(500);
 	}
 };
 
